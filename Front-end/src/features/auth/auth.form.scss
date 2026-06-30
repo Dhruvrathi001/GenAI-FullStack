@@ -1,0 +1,119 @@
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.container {
+  width: 90%;
+  width: 450px;
+  padding: 1.5rem;
+  position: relative;
+  border-radius: 1.5rem;
+  border: 3px solid transparent;
+  background-image:
+    linear-gradient(#242121, #101e19c4),
+    linear-gradient(var(--angle), #692e06, #e21490, #692e06);
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  transition: --angle 0.89s ease;
+}
+
+.container:hover {
+  --angle: 150deg;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+h1 {
+  font-size: 3.5rem;
+  color: rgb(221, 215, 215);
+  letter-spacing: 0.1em;
+  display: inline-block; /* Keeps the background underline exactly the width of the text */
+
+  /* 1. Create the underline using a background image */
+  background-image: linear-gradient(135deg, #692e06 0%, #e21490 100%);
+  // background-image: linear-gradient(to right, #ea7993, #b12d16);
+  background-repeat: no-repeat;
+  background-size: 30% 3px; /* Width is 0% initially, thickness is 3px */
+  background-position: left bottom; /* Underline starts from the bottom left */
+
+  /* 2. Setup the transition for the background-size */
+  transition: background-size 0.6s ease;
+}
+
+h1:hover {
+  background-size: 100% 3px; /* Expands the underline to 100% width on hover */
+  animation: pulse 2s cubic-bezier(0.42, 0, 1, 1);
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+label {
+  font-size: 1.45rem;
+  color: rgb(221, 215, 215);
+}
+
+.input-field {
+  margin-bottom: 1.2rem;
+  font-family: "Times New Roman", Times, serif;
+  letter-spacing: 1.2px;
+  font-size: 1rem;
+  padding: 1rem;
+  border-radius: 0.95rem;
+  outline: none;
+  border: none;
+  caret-color: rgb(221, 215, 215);
+  background-color: rgba(255, 255, 255, 0.05);
+  transition: all 0.3s cubic-bezier(0.42, 0, 1, 1);
+}
+.input-field::placeholder {
+  color: rgb(130, 126, 126);
+  font-size: 0.85rem;
+  filter: blur(0.5px);
+}
+.input-field:focus {
+  border: 2px solid rgb(235, 152, 152);
+  animation: pulse 2s cubic-bezier(0.42, 0, 1, 1) infinite;
+}
+.input-field:focus::placeholder {
+  filter: blur(0px);
+  font-size: 0.95rem;
+}
+.input-field:not(:placeholder-shown) {
+  color: rgb(221, 215, 215);
+  background-color: rgba(255, 255, 255, 0.05);
+
+  /* Subtle pop animation for the whole input box text field when active */
+  animation: textPop 0.1s ease-out;
+}
+@keyframes textPop {
+  0% {
+    transform: scale(0.99);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+a{
+    color: rgb(87, 85, 180);
+    text-decoration: none;
+}
+a:hover{
+    color: rgba(59, 58, 166, 0.829);
+}

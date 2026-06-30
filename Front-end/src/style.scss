@@ -1,0 +1,16 @@
+@use "./styles/button.scss";
+@use "./styles/interview.scss";
+@use "./features/auth/auth.form.scss";
+
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.877);
+    color: rgb(200, 180, 180);
+}
+
